@@ -1,7 +1,7 @@
 import streamlit as st
 import time
 st.set_page_config(page_title='Game Ai', page_icon='📈', layout="wide", initial_sidebar_state="collapsed")
-# st.logo('../images/logo.png', icon_image='../images/neww.png')
+st.logo('images/logo.png', icon_image='images/neww.png')
 st.sidebar.title("Hi There!")
 
 welcome_message = """
