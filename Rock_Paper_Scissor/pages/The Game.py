@@ -70,11 +70,11 @@ if you need any aditional information you can write rules or how to win . or sta
 
 **Good luck, and may the best move win! Let’s play! 😄**'''
         st.session_state.prediction_steps = 'second_phase'
-        st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": response})
+        st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": response})
 # If there is input, add it to the conversation history
 if prompt:
     if st.session_state.game_mode != 1:
-        st.session_state.messages.append({"name": "User", "avatar": '../images/user.png', "message": f"{prompt}"})
+        st.session_state.messages.append({"name": "User", "avatar": 'images/user.png', "message": f"{prompt}"})
     if st.session_state.prediction_steps in ['second_phase']:
         if 'win' in prompt or 'rules' in prompt :
             response = get_value(prompt)
@@ -85,7 +85,7 @@ if prompt:
 The stage is set, the opponents are ready, and the stakes are high. Every choice you make could lead to glory or defeat. Are you ready to put your wits to the test and claim victory? 🎖️
 
 **Let the games begin... and may the odds be ever in your favor! 🔥**'''
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": start_response})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": start_response})
             
             # Show toast messages
             msg = st.toast('Starting the Game ...')
@@ -101,52 +101,52 @@ The stage is set, the opponents are ready, and the stakes are high. Every choice
             st.session_state.game_mode = 1
             response = '''Enter your name player 1, valiant challenger, and prepare for an epic 1 vs 1 duel! Your name will be etched in the history of this grand battle! 🎖️'''
             message = '**Fantastic!** You’ve chosen to battle it out with a friend in an epic 1 vs 1 showdown! Get ready to throw down, strategize, and see who reigns supreme! Let’s rock this game! 🚀'
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
         
         else:
             st.session_state.game_mode = 2
             response = '''Enter your name player 1, brave one, so that I may know you and your name will be immortalized in the annals of history! 🎖️'''
             message = '**🤖 Awesome choice!** You’re going head-to-head with the computer in a thrilling 1 vs Computer match! Can you outsmart the machine? Let’s find out! Game on! 💥💣 '
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             
         st.session_state.prediction_steps = 'players'
     elif st.session_state.prediction_steps in ['players']:
         if st.session_state.game_mode == 1:
             if st.session_state.counter == 0:
                 message = f'Welcome, {prompt}! You are now set for an epic 1 vs 1 battle. Prepare yourself for a thrilling showdown'
-                st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 response = 'Enter your name Player 2, worthy adversary, and get ready for an epic 1 vs 1 showdown.'
                 st.session_state.players_names[0] = prompt
                 st.session_state.counter = 1
             else :
                 message = f'Welcome, {prompt}! You are now set for an epic 1 vs 1 battle against {st.session_state.players_names[0]} ({prompt}⚔️{st.session_state.players_names[0]})'
-                st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 st.session_state.players_names[1] = prompt
                 st.session_state.counter = 0
                 response = '''Let’s see who will have the honor of starting first... 🤔
 The anticipation builds as we wait to see which warrior will make the first move in this epic battle! 🥁✨'''
                 st.session_state.first_to_play = random.randint(0,1)
                 message = f'''{st.session_state.players_names[0-st.session_state.first_to_play]} is playing first then {st.session_state.players_names[1-st.session_state.first_to_play]}'''
-                st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 message = '🔥 "The game has ignited! May the best player emerge victorious!" 🔥'
-                st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 response = f'''🔥 The game has begun! 🔥
 
 Player {st.session_state.players_names[0-st.session_state.first_to_play]}, it's your turn to choose! Will you pick rock, paper, or scissors? (1,2,3) Make your choice wisely and prepare for an epic battle! 💥'''
                 st.session_state.prediction_steps = 'play'
         else :
             message = f"Welcome, {prompt}! You are now set to take on the ultimate challenge against the computer. Prepare yourself for an exhilarating battle of wits and strategy—it's you versus the machine!"
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             st.session_state.players_names[0] = prompt
             st.session_state.players_names[1] = 'Computer'
             message = '''Let’s see who will have the honor of starting first... 🤔
 The anticipation builds as we wait to see which warrior will make the first move in this epic battle! 🥁✨'''
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             st.session_state.first_to_play = 0 #random.randint(0,1)
             message = f'''{st.session_state.players_names[0-st.session_state.first_to_play]} is playing first then {st.session_state.players_names[1-st.session_state.first_to_play]}'''
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             message = '🔥 "The game has ignited! May the best player emerge victorious!" 🔥'
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             response = f"{st.session_state.players_names[0-st.session_state.first_to_play]}, it's your turn to choose! Will you pick rock, paper, or scissors? (1,2,3) Make your choice wisely"
 #             if st.session_state.players_names[0-st.session_state.first_to_play] == 'Computer':
 #                 st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
@@ -167,18 +167,18 @@ The anticipation builds as we wait to see which warrior will make the first move
                 st.session_state.counter = 1
             else:
                 message = "⚔️ The choices are in! ⚔️ Player 1 and Player 2 have both made their moves. Let's see who emerges victorious in this thrilling round! Stay tuned for the results... 🥳"
-                st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 st.session_state.chooses[1-st.session_state.first_to_play] = prompt
                 st.session_state.result = 1
                 st.session_state.counter = 0
         elif st.session_state.game_mode == 2 :
             st.session_state.chooses[0-st.session_state.first_to_play] = prompt
             message = f"{st.session_state.players_names[1-st.session_state.first_to_play]}, it's your turn to choose! Will you pick rock, paper, or scissors? (1,2,3)"
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             choice = random.randint(1,3) 
             st.session_state.chooses[1-st.session_state.first_to_play] = str(choice)
             message = "⚔️ The choices are in! ⚔️ Player 1 and Player 2 have both made their moves. Let's see who emerges victorious in this thrilling round! Stay tuned for the results... 🥳"
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             st.session_state.result = 1
             st.session_state.counter = 0
         if st.session_state.result == 1 :
@@ -189,36 +189,36 @@ The anticipation builds as we wait to see which warrior will make the first move
                     message = '''🤝 It's a Tie! 🤝
 
 Both players have made equally matched moves, resulting in a draw. No winner this round 🌟'''
-                    st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                    st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 elif (player_1_choose == '1' and player_2_choose == '3') or (player_1_choose == '2' and player_2_choose == '1') or (player_1_choose == '3' and player_2_choose == '2') :
                     st.session_state.scores[0-st.session_state.first_to_play]+=1
                     message = f'''🌟 Well Done, player {st.session_state.players_names[0-st.session_state.first_to_play]}! 🌟
 
 You've scored a point and are one step closer to victory! Keep up the great work and stay focused. The next round could be the game-changer! 🏅🔥'''
-                    st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                    st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 else:
                     st.session_state.scores[1-st.session_state.first_to_play]+=1
                     message = f'''🌟 Well Done, player {st.session_state.players_names[1-st.session_state.first_to_play]}! 🌟
 
 You've scored a point and are one step closer to victory! Keep up the great work and stay focused. The next round could be the game-changer! 🏅🔥'''
-                    st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                    st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 message = f'''🏆 Current Score 🏆
 
 Player {st.session_state.players_names[0-st.session_state.first_to_play]}: { st.session_state.scores[0-st.session_state.first_to_play]} | Player {st.session_state.players_names[1-st.session_state.first_to_play]}: { st.session_state.scores[1-st.session_state.first_to_play]}
 
 The battle is heating up! Keep playing to see who will claim victory. May the best player win! 🔥✨'''
-                st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                 if st.session_state.scores[0] == 3 or st.session_state.scores[1] == 3:
                     if st.session_state.scores[0-st.session_state.first_to_play] == 3:
                         message = f'''🎉 Congratulations, {st.session_state.players_names[0-st.session_state.first_to_play]}! You have won the game! 🏆
 
 Your strategy and skills have led you to victory. Well played! Enjoy your triumph, champion! 🔥🚀'''
-                        st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                        st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                     else :
                         message = f'''🎉 Congratulations, {st.session_state.players_names[1-st.session_state.first_to_play]}! You have won the game! 🏆
 
 Your strategy and skills have led you to victory. Well played! Enjoy your triumph, champion! 🔥🚀'''
-                        st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+                        st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
                     st.session_state.scores = [0,0]
                     response = '''Would you like to play another round and continue the fun, or is it time to call it a day?
 
@@ -231,7 +231,7 @@ Type "play again" to start a new game, or "end game" if you’re done for now. T
         if 'play' in prompt or 'again' in prompt or prompt.startswith('p'):
             response = f'''Player {st.session_state.players_names[0-st.session_state.first_to_play]}, it's your turn to choose! Will you pick rock, paper, or scissors? (1,2,3) Make your choice wisely and prepare for an epic battle! 💥'''
             message = "Fantastic choice! 🎉 Get ready for another exciting round. Let's see if you can keep the winning streak going or turn the tables this time. Game on! 🚀"
-            st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": message})
+            st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": message})
             st.session_state.prediction_steps = 'play'
         else:
             response = "Thank you for playing! 🎮 It’s been a thrilling ride. Whether you won or lost, you played well! Until next time, champion. Farewell and keep that competitive spirit alive! 🏆👋"
@@ -245,7 +245,7 @@ Type "play again" to start a new game, or "end game" if you’re done for now. T
             st.session_state.scores = [0,0]
             st.session_state.chooses = [0,0]
             st.session_state.players_names = ['','']
-    st.session_state.messages.append({"name": "Deep Ai", "avatar": '../images/robot.png', "message": response})
+    st.session_state.messages.append({"name": "Deep Ai", "avatar": 'images/robot.png', "message": response})
             
         
 # Display the conversation history
