@@ -96,6 +96,8 @@ The stage is set, the opponents are ready, and the stakes are high. Every choice
             
             # Automatically move to the decision phase message
             response = '**Hello! Ready to play? 🎮** Do you want to challenge a friend (1 vs 1) or face the computer (1 vs Computer)? Please type "1" for a friend or "2" for the computer.'
+        else: 
+            response = 'Unknown command due to limited information right now 😄..'
     elif st.session_state.prediction_steps in ['decide']:
         if prompt == '1':
             st.session_state.game_mode = 1
