@@ -1,11 +1,9 @@
 import streamlit as st
 import random
 import time
-import getpass
-from itertools import combinations_with_replacement
 # Page configuration
-st.set_page_config(page_title='Betta Ai', page_icon='📈', layout="wide", initial_sidebar_state="collapsed")
-st.logo('../images/logo.png', icon_image='../images/neww.png')
+st.set_page_config(page_title='Game Ai', page_icon='📈', layout="wide", initial_sidebar_state="collapsed")
+st.logo('images/logo.png', icon_image='images/neww.png')
 st.sidebar.title("Hi There!")
 st.sidebar.markdown("Take a look at my website :shark:")
 # Initialize session state variables
