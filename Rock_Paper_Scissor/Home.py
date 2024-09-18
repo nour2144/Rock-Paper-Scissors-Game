@@ -15,6 +15,6 @@ def stream_data():
     for word in welcome_message.split(" "):
         yield word + " "
         time.sleep(0.02)
-    st.image("../images/rock.png", caption="Sunrise Of AI",use_column_width ='always')
+    st.image("images/rock.png", caption="Sunrise Of AI",use_column_width ='always')
 
 st.write_stream(stream_data)
